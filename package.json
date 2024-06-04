@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"tsx watch src/index.ts",
-    "build":"tsx src --out-dir build",
-    "start":"node build/index.js"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsx src --out-dir build",
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +18,8 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "fastify": "^4.27.0"
+    "dotenv": "^16.4.5",
+    "fastify": "^4.27.0",
+    "zod": "^3.23.8"
   }
 }
