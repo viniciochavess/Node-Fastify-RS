@@ -3,3 +3,5 @@ npx tsc --init
 npm i fastify
 npm i dotenv
 npm i zod
+npm i prisma -D 
+npm i @prisma/client
