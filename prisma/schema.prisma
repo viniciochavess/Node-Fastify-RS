@@ -11,12 +11,40 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
-  email     String   @unique
+  email     String    @unique
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  CheckIns  Checkin[]
 
   @@map("users")
+}
+
+model Checkin {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [user_id], references: [id])
+  gym       Gym      @relation(fields: [gym_id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user_id   String
+  gym_id    String
+
+  @@map("check_ins")
+}
+
+model Gym {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  phone       String
+  address     String
+  latitude    Decimal
+  longitude   Decimal
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  CheckIns    Checkin[]
+
+  @@map("gyms")
 }
