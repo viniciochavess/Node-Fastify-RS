@@ -1,8 +1,7 @@
 import fastify from 'fastify';
+import { appRouterUser } from './router/UserRouter';
 const app  = fastify();
 
-app.get('/', async (request, reply) => {
-    return "Hello World!"
-});
+app.register(appRouterUser)
 
 export default app;
