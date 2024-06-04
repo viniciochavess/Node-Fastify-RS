@@ -4,7 +4,10 @@
   "description": "GymPass Style App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"tsx watch src/index.ts",
+    "build":"tsx src --out-dir build",
+    "start":"node build/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +16,8 @@
     "tsup": "^8.1.0",
     "tsx": "^4.11.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "fastify": "^4.27.0"
   }
 }
