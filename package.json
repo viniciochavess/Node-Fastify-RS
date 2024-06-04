@@ -1,0 +1,17 @@
+{
+  "name": "node-fastify-rs",
+  "version": "1.0.0",
+  "description": "GymPass Style App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.1",
+    "tsup": "^8.1.0",
+    "tsx": "^4.11.2",
+    "typescript": "^5.4.5"
+  }
+}
