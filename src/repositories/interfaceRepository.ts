@@ -12,4 +12,5 @@ export interface ResponseIUser {
 
 export interface IUserRepository {
   create(user: IUser): Promise<ResponseIUser>;
+  findByEmail(email: string): Promise<ResponseIUser | null>;
 }

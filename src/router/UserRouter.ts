@@ -1,8 +1,6 @@
-import {FastifyInstance} from "fastify";
-import { RegisterUserController } from "../http/RegisterUserController";
+import { FastifyInstance } from "fastify";
+import { RegisterUserController } from "../http/controllers/RegisterUserController";
 
 export async function appRouterUser(app: FastifyInstance) {
-    app.post('/users', RegisterUserController )
+  await app.post("/users", RegisterUserController);
 }
-
-
