@@ -1,6 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import createUserMake from "../../make/CreateUserMake";
+import { UserAlreadyExistsError } from "../../errors/users-already-exists-error";
 
 export async function RegisterUserController(
   request: FastifyRequest,
@@ -19,6 +20,9 @@ export async function RegisterUserController(
     console.log(result);
     return result;
   } catch (err) {
-    return reply.code(400).send({ message: "Error in the request body" });
+    if(err instanceof UserAlreadyExistsError){ 
+      reply.code(409).send({ err: err.message });
+    }
+    return reply.code(500).send({ err});
   }
 }

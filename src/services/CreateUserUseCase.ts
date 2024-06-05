@@ -4,6 +4,7 @@ import {
   IUserRepository,
   ResponseIUser,
 } from "../repositories/interfaceRepository";
+import { UserAlreadyExistsError } from "../errors/users-already-exists-error";
 
 export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
@@ -11,7 +12,7 @@ export class CreateUserUseCase {
   async execute(user: IUser): Promise<ResponseIUser> {
     const findByEmail = await this.userRepository.findByEmail(user.email);
     if (findByEmail) {
-      throw new Error("User already exists");
+      throw new UserAlreadyExistsError();
     }
     const { email, name, password } = user;
     const passwordHash = await hash(password, 8);
