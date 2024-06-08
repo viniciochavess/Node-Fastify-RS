@@ -10,7 +10,7 @@ export async function RegisterUserController(
   const ShemaBody = z.object({
     name: z.string(),
     email: z.string(),
-    password: z.string(),
+    password: z.string().min(6),
   });
 
   try {
@@ -23,6 +23,8 @@ export async function RegisterUserController(
     if(err instanceof UserAlreadyExistsError){ 
       reply.code(409).send({ err: err.message });
     }
-    return reply.code(500).send({ err});
+
+    throw err;
+    // return reply.code(500).send({ err});
   }
 }
